@@ -8,10 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      naveId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Naves',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       nombre: {
         type: Sequelize.STRING
       },
-      apellido: {
+      apellido1: {
+        type: Sequelize.STRING
+      },
+      apellido2: {
         type: Sequelize.STRING
       },
       edad: {

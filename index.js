@@ -4,9 +4,10 @@ const port = 3000;
 const db = require("./db.js")
 
 
-//Starting Server
-db.then(()=>{
 
+//Connecting to the database 
+db.then(()=>{
+    //Starting Server
     app.listen(port, () => console.log(`Servidor levantado en http://localhost:${port}`));
 })
 .catch((err)=> console.log(err.message));

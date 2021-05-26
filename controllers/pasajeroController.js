@@ -1,4 +1,5 @@
 const { Pasajero } = require('../models');
+const bcrypt = require('bcrypt');
 
 
 class Viajero { 
@@ -7,15 +8,25 @@ class Viajero {
 
         return Pasajero.findAll();
 
-
     }
 
-    async passengerID(id){
+    async namePassenger(nombre){
+        return Pasajero.findOne({
+            where: {nombre}
+        })
+    }
+
+    async passengerId(id){
 
         return Pasajero.findByPk(id);
     }
 
     async newPassenger(body){
+
+        let password = body.password;
+        let passwordHashed = bcrypt.hashSync(password, 10);
+
+        body.password = passwordHashed;
 
         return Pasajero.create(body);
 
@@ -38,5 +49,4 @@ class Viajero {
 }
 
 let pasajeroController = new Viajero();
-
 module.exports = pasajeroController;

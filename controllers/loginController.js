@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const secret = "Mucho Alien suelto por ahí";
 
 class LoginController {
-    async validate(passwordCheck, emailCheck){
+    async validate(nombreCheck, passwordCheck){
 
         let pasajero = await pasajeroController.namePassenger(nombreCheck);
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pasajeroController = require('../controllers/pasajeroController');
 const authenticate = require('../middleware/authenticate');
+const admin = require('../middleware')
 
 
 //API CRUD PASAJERO

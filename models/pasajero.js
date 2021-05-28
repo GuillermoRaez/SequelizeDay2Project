@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Pasajero.belongsTo(models.Nave, {
         foreignKey: 'naveId'
+      }),
+      Pasajero.hasOne(models.Curriculum, {
+        foreignKey: 'idPasajero'})
+      Pasajero.belongsToMany(models.Alien, {
+        through: 'PasajeroAlien',
+        as: 'aliens',
+        foreignKey: 'pasajeroId',
+        otherKey: 'alienId'
       });
     }
   };

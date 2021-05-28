@@ -3,9 +3,10 @@ const app = express();
 const port = 3000;
 const db = require('./db.js');
 const router = require('./router.js');
-
+const cops = require('cors');
 
 //Middleware
+app.use(cors());
 app.use(express.json());
 app.use(router);
 
